@@ -9,10 +9,19 @@ from pathlib import Path
 
 OUT = Path(__file__).parent / "svg"
 
+# Unraid-farger: logoen går fra rød til oransje, venstre mot høyre.
+# Sett UNIFORM = False for å bruke fargen hvert ikon har i ICONS.
+UNIFORM = True
+RED, ORANGE = "#e22828", "#ff8c2f"
+GLOW = "#f15a2c"      # glød og kantlinje (gradient fungerer ikke der)
+LIGHT = "#ffe2cc"     # lys "blink"-farge i animasjonene
+TINTS = ["#ede9fe", "#e0f2fe", "#ffe4e6", "#fef3c7", "#ecfdf5", "#eff6ff", "#fdf2f8"]
+
 TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#283246"/><stop offset="1" stop-color="#111726"/></linearGradient>
-<radialGradient id="glow" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="{c}" stop-opacity=".38"/><stop offset="1" stop-color="{c}" stop-opacity="0"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{bg1}"/><stop offset="1" stop-color="{bg2}"/></linearGradient>
+<linearGradient id="acc" gradientUnits="userSpaceOnUse" x1="20" y1="30" x2="108" y2="98"><stop offset="0" stop-color="{red}"/><stop offset="1" stop-color="{orange}"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="{glow}" stop-opacity=".38"/><stop offset="1" stop-color="{glow}" stop-opacity="0"/></radialGradient>
 </defs>
 <style>
 *{{transform-box:fill-box;transform-origin:center}}
@@ -24,7 +33,7 @@ TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" widt
 </style>
 <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
 <rect class="glow" x="4" y="4" width="120" height="120" rx="28" fill="url(#glow)"/>
-<rect x="5" y="5" width="118" height="118" rx="27" fill="none" stroke="{c}" stroke-opacity=".4" stroke-width="2"/>
+<rect x="5" y="5" width="118" height="118" rx="27" fill="none" stroke="{glow}" stroke-opacity=".4" stroke-width="2"/>
 {body}
 </svg>
 """
@@ -132,7 +141,7 @@ ICONS = {
 """, body="""
 <path class="s" d="M64 36 L90 86 L38 86 Z" stroke-width="5" stroke-opacity=".55"/>
 <path class="pk" d="M64 36 L90 86 L38 86 Z"/>
-<circle class="s n" cx="64" cy="36" r="10" fill="#1d2536" stroke-width="6"/>
+<circle class="s n" cx="64" cy="36" r="10" fill="#1f2a3c" stroke-width="6"/>
 <circle class="s n n2" cx="90" cy="86" r="10" fill="#141b2b" stroke-width="6"/>
 <circle class="s n n3" cx="38" cy="86" r="10" fill="#141b2b" stroke-width="6"/>
 """),
@@ -179,6 +188,16 @@ LABELS = {
 def main():
     OUT.mkdir(exist_ok=True)
     for name, d in ICONS.items():
+        d = dict(d, red=RED, orange=ORANGE)
+        if UNIFORM:
+            for key in ("css", "body"):
+                d[key] = d[key].replace(d["c"], "url(#acc)")
+                for t in TINTS:
+                    d[key] = d[key].replace(t, LIGHT)
+                d[key] = d[key].replace("#1f2a3c", "#262626").replace("#141b2b", "#1a1a1a")
+            d.update(c="url(#acc)", glow=GLOW, bg1="#2c2c2c", bg2="#141414")
+        else:
+            d.update(glow=d["c"], bg1="#283246", bg2="#111726")
         (OUT / f"{name}.svg").write_text(TEMPLATE.format(**d))
 
     cards = "\n".join(

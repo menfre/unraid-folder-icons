@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#283246"/><stop offset="1" stop-color="#111726"/></linearGradient>
-<radialGradient id="glow" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#60a5fa" stop-opacity=".38"/><stop offset="1" stop-color="#60a5fa" stop-opacity="0"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c2c2c"/><stop offset="1" stop-color="#141414"/></linearGradient>
+<linearGradient id="acc" gradientUnits="userSpaceOnUse" x1="20" y1="30" x2="108" y2="98"><stop offset="0" stop-color="#e22828"/><stop offset="1" stop-color="#ff8c2f"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#f15a2c" stop-opacity=".38"/><stop offset="1" stop-color="#f15a2c" stop-opacity="0"/></radialGradient>
 </defs>
 <style>
 *{transform-box:fill-box;transform-origin:center}
-.s{fill:none;stroke:#60a5fa;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
-.f{fill:#60a5fa}
+.s{fill:none;stroke:url(#acc);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.f{fill:url(#acc)}
 .glow{animation:glow 4s ease-in-out infinite}
 @keyframes glow{50%{opacity:.45}}
 
-.pk{fill:none;stroke:#eff6ff;stroke-width:6;stroke-linecap:round;stroke-dasharray:6 76;animation:pk 2.6s linear infinite}
+.pk{fill:none;stroke:#ffe2cc;stroke-width:6;stroke-linecap:round;stroke-dasharray:6 76;animation:pk 2.6s linear infinite}
 .n{animation:n 2.6s ease-in-out infinite}
 .n2{animation-delay:.87s}.n3{animation-delay:1.73s}
 @keyframes pk{to{stroke-dashoffset:-164}}
@@ -19,12 +20,12 @@
 </style>
 <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
 <rect class="glow" x="4" y="4" width="120" height="120" rx="28" fill="url(#glow)"/>
-<rect x="5" y="5" width="118" height="118" rx="27" fill="none" stroke="#60a5fa" stroke-opacity=".4" stroke-width="2"/>
+<rect x="5" y="5" width="118" height="118" rx="27" fill="none" stroke="#f15a2c" stroke-opacity=".4" stroke-width="2"/>
 
 <path class="s" d="M64 36 L90 86 L38 86 Z" stroke-width="5" stroke-opacity=".55"/>
 <path class="pk" d="M64 36 L90 86 L38 86 Z"/>
-<circle class="s n" cx="64" cy="36" r="10" fill="#1d2536" stroke-width="6"/>
-<circle class="s n n2" cx="90" cy="86" r="10" fill="#141b2b" stroke-width="6"/>
-<circle class="s n n3" cx="38" cy="86" r="10" fill="#141b2b" stroke-width="6"/>
+<circle class="s n" cx="64" cy="36" r="10" fill="#262626" stroke-width="6"/>
+<circle class="s n n2" cx="90" cy="86" r="10" fill="#1a1a1a" stroke-width="6"/>
+<circle class="s n n3" cx="38" cy="86" r="10" fill="#1a1a1a" stroke-width="6"/>
 
 </svg>
