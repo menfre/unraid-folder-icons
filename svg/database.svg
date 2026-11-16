@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#283246"/><stop offset="1" stop-color="#111726"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#34d399" stop-opacity=".38"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+*{transform-box:fill-box;transform-origin:center}
+.s{fill:none;stroke:#34d399;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.f{fill:#34d399}
+.glow{animation:glow 4s ease-in-out infinite}
+@keyframes glow{50%{opacity:.45}}
+
+.lv{animation:lv 2.4s ease-in-out infinite}
+.l2{animation-delay:.3s}.l3{animation-delay:.6s}
+@keyframes lv{0%,40%,100%{stroke:#34d399}20%{stroke:#ecfdf5}}
+
+</style>
+<rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
+<rect class="glow" x="4" y="4" width="120" height="120" rx="28" fill="url(#glow)"/>
+<rect x="5" y="5" width="118" height="118" rx="27" fill="none" stroke="#34d399" stroke-opacity=".4" stroke-width="2"/>
+
+<ellipse class="s lv" cx="64" cy="38" rx="28" ry="10"/>
+<path class="s" d="M36 38 V90 M92 38 V90"/>
+<path class="s lv l1" d="M36 55 A28 10 0 0 0 92 55"/>
+<path class="s lv l2" d="M36 72 A28 10 0 0 0 92 72"/>
+<path class="s lv l3" d="M36 90 A28 10 0 0 0 92 90"/>
+
+</svg>
