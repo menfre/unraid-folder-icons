@@ -9,6 +9,7 @@ Lim inn URL-en i ikonfeltet på mappen.
 | <img src="svg/bots.svg" width="48"> | bots | `https://raw.githubusercontent.com/menfre/unraid-folder-icons/main/svg/bots.svg` |
 | <img src="svg/database.svg" width="48"> | database | `https://raw.githubusercontent.com/menfre/unraid-folder-icons/main/svg/database.svg` |
 | <img src="svg/egne-apper.svg" width="48"> | egne-apper | `https://raw.githubusercontent.com/menfre/unraid-folder-icons/main/svg/egne-apper.svg` |
+| <img src="svg/time-machine.svg" width="48"> | time-machine | `https://raw.githubusercontent.com/menfre/unraid-folder-icons/main/svg/time-machine.svg` |
 | <img src="svg/game-servers.svg" width="48"> | game-servers | `https://raw.githubusercontent.com/menfre/unraid-folder-icons/main/svg/game-servers.svg` |
 | <img src="svg/home-automation.svg" width="48"> | home-automation | `https://raw.githubusercontent.com/menfre/unraid-folder-icons/main/svg/home-automation.svg` |
 | <img src="svg/media-automation.svg" width="48"> | media-automation | `https://raw.githubusercontent.com/menfre/unraid-folder-icons/main/svg/media-automation.svg` |

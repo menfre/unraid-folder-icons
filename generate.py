@@ -175,13 +175,30 @@ ICONS = {
 <path class="s pr" d="M38 62 L48 71 L38 80"/>
 <rect class="f cur" x="56" y="76" width="22" height="6" rx="3"/>
 """),
+    # ------------------------------------------------------ Time Machine
+    "time-machine": dict(c="#fb923c", css="""
+.hand{transform-box:view-box;transform-origin:66px 66px}
+.min{animation:back 3s linear infinite}
+.hr{animation:back 18s linear infinite}
+.arr{animation:nudge 3s ease-in-out infinite}
+@keyframes back{to{transform:rotate(-360deg)}}
+@keyframes nudge{0%,100%{opacity:1}50%{opacity:.55}}
+""", body="""
+<g class="arr">
+<path class="s" d="M38.3 50 A32 32 0 1 1 38.3 82"/>
+<path class="f" d="M33.8 57.8 L31.4 46 L45.2 54Z" stroke="#fb923c" stroke-width="4" stroke-linejoin="round"/>
+</g>
+<path class="s hand hr" d="M66 66 V52" stroke-width="6"/>
+<path class="s hand min" d="M66 66 H83" stroke-width="5"/>
+<circle class="f" cx="66" cy="66" r="4.5"/>
+"""),
 }
 
 LABELS = {
     "ai-tools": "AI tools", "home-automation": "Home Automation", "bots": "Bots",
     "media-servers": "Media Servers", "media-automation": "Media Automation",
     "database": "Database", "network": "Network", "game-servers": "Game Servers",
-    "egne-apper": "Egne apper (ny)",
+    "egne-apper": "Egne apper (ny)", "time-machine": "TimeMachine (ny)",
 }
 
 
